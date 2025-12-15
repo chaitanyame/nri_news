@@ -4,13 +4,13 @@
     "region": "india",
     "date": "2025-12-15",
     "period": "morning",
-    "generated_at": "2025-12-15T05:15:20Z",
+    "generated_at": "2025-12-15T05:29:44Z",
     "version": "1.0",
     "articles": [
       {
-        "title": "CBI Busts Transnational Cyber-Fraud Network, 17 Charged",
-        "summary": "The Central Bureau of Investigation filed a chargesheet against 17 accused in a transnational cyber‑fraud network after overnight raids and forensic probes; the operation targeted call‑centre rings operating across multiple states and abroad, and seized devices and banking records to map proceeds of crime, sources said late last night in New Delhi.",
-        "category": "world",
+        "title": "CBI Chargesheet in Transnational Cyber Fraud Case",
+        "summary": "The CBI filed a chargesheet overnight against 17 accused in a transnational cyber fraud network dismantled after multi‑agency investigations, alleging large‑scale online banking and UPI scams affecting victims across India and abroad; the agency said evidence links organizers to overseas operators and seized digital assets during late‑night raids in multiple states, Dec 14–15 morning reports from national outlets said.",
+        "category": "politics",
         "source": {
           "name": "Unknown Source",
           "url": "https://timesofindia.indiatimes.com/india/breaking-news-live-updates-15-december-2025/liveblog/125964562.cms"
@@ -35,8 +35,8 @@
         "article_id": "india-2025-12-15-morning-001"
       },
       {
-        "title": "Delhi Records Severe Air Pollution; AQI Hits 461 Overnight",
-        "summary": "Delhi's air quality worsened overnight, with the Central Pollution Control Board reporting an AQI of 461 in parts of the city, classed as 'severe', disrupting flight operations and raising health advisories for vulnerable groups across the capital region, officials said in early‑morning updates.",
+        "title": "Delhi Records Severe Air Pollution Spike Overnight",
+        "summary": "Delhi's Air Quality Index surged into the 'severe' category overnight, reaching readings above 450 in several monitoring stations, prompting school hybrid‑mode advisories and health warnings from local authorities as cold, calm winds trapped pollutants across the capital region during the early hours.",
         "category": "environment",
         "source": {
           "name": "Unknown Source",
@@ -52,13 +52,18 @@
             "title": "Reference",
             "url": "https://www.timesnownews.com/india/breaking-news-today-live-updates-india-international-world-latest-news-15-december-2025-liveblog-153293692",
             "publisher": "Unknown"
+          },
+          {
+            "title": "Reference",
+            "url": "https://ddnews.gov.in/en/indian-american-community-leader-calls-for-tariff-reversal-to-bolster-india-us-relations/",
+            "publisher": "Unknown"
           }
         ],
         "article_id": "india-2025-12-15-morning-002"
       },
       {
-        "title": "Punjab Rural Polls See Low Turnout, Opposition Alleges Violence",
-        "summary": "Rural zila parishad and block samiti polling in Punjab concluded overnight with a reported turnout of about 48%, and opposition parties alleged instances of violence and intimidation at several booths, prompting calls for a probe and the filing of complaints with state election authorities, according to party statements and reporting late last night.",
+        "title": "Punjab Rural Polls End with Low Turnout, Opposition Alleges Violence",
+        "summary": "Zila parishad and block samiti polling in Punjab concluded with an overall turnout of about 48% and opposition parties alleging booth‑level violence and irregularities; the state election authorities said counting arrangements will follow while parties demanded investigations into reported incidents from yesterday evening.",
         "category": "politics",
         "source": {
           "name": "Unknown Source",
@@ -74,8 +79,8 @@
         "article_id": "india-2025-12-15-morning-003"
       },
       {
-        "title": "Woman Stabbed To Death Inside Delhi Temple; One Arrested",
-        "summary": "Police in Delhi arrested one suspect after a 48‑year‑old woman was found stabbed inside a temple late last night; investigators say motive is under inquiry while forensic teams processed the scene and the accused was taken for questioning, officials told reporters in the early hours.",
+        "title": "NIA Court Issues Public Notice in Delhi Blast Case",
+        "summary": "An NIA court declared accused Muzaffar Rather a proclaimed offender in an ongoing Delhi blast investigation and ordered public notices and house postings as part of proceedings after the court recorded failure to locate the suspect following searches conducted into the matter overnight.",
         "category": "world",
         "source": {
           "name": "Unknown Source",
@@ -91,9 +96,9 @@
         "article_id": "india-2025-12-15-morning-004"
       },
       {
-        "title": "NIA To File Chargesheet Today In Jammu Explosion Case",
-        "summary": "The National Investigation Agency prepared to file a chargesheet today in connection with a recent explosion in Jammu after concluding overnight evidence consolidation and witness statements; the move follows searches and seizure operations across multiple locations tied to the probe, officials stated.",
-        "category": "world",
+        "title": "Haryana Removes Shatrujeet Kapur from DGP Charge",
+        "summary": "The Haryana government divested IPS officer Shatrujeet Kapur of the Director General of Police charge late last night, citing administrative reasons and forwarding records of five officers to the UPSC for empanelment decisions to fill the position, officials told state media.",
+        "category": "politics",
         "source": {
           "name": "Unknown Source",
           "url": "https://www.timesnownews.com/india/breaking-news-today-live-updates-india-international-world-latest-news-15-december-2025-liveblog-153293692"
@@ -108,12 +113,12 @@
         "article_id": "india-2025-12-15-morning-005"
       },
       {
-        "title": "One Killed, Two Injured In Jalandhar Scrap‑shop Blast",
-        "summary": "A blast at a scrap shop in Jalandhar late last night killed one person and injured two others; local police said emergency services responded overnight, the deceased has been identified, and an investigation into the cause of the explosion is under way.",
+        "title": "Woman Killed Inside Delhi Temple; One Arrested",
+        "summary": "Delhi police arrested a suspect after a 48‑year‑old woman was stabbed to death inside a temple late on Sunday; investigators said the arrest occurred overnight and further forensic and CCTV probes are under way to establish motive and identify any accomplices.",
         "category": "world",
         "source": {
           "name": "Unknown Source",
-          "url": "https://example.com/"
+          "url": "https://ddnews.gov.in/en/indian-american-community-leader-calls-for-tariff-reversal-to-bolster-india-us-relations/"
         },
         "citations": [
           {
@@ -125,9 +130,9 @@
         "article_id": "india-2025-12-15-morning-006"
       },
       {
-        "title": "Maharashtra Announces Mumbai–Hyderabad Expressway, Metro Expansion",
-        "summary": "In a late‑night address during the winter session, Maharashtra's deputy chief minister announced plans for a Mumbai–Hyderabad expressway, expansion of Mumbai metro lines and proposed power tariff reductions aimed at accelerating connectivity and easing urban energy costs across the state.",
-        "category": "politics",
+        "title": "Karnataka Prisons Chief Launches Phone, Contraband Crackdown",
+        "summary": "Karnataka's new prisons chief ordered a statewide crackdown within 72 hours of taking charge, leading to seizures of 13 mobile phones and narcotics in multiple jails during late‑night searches as authorities tightened controls on inmate contraband and campaigned for prison reforms.",
+        "category": "world",
         "source": {
           "name": "Unknown Source",
           "url": "https://example.com/"
@@ -142,8 +147,8 @@
         "article_id": "india-2025-12-15-morning-007"
       },
       {
-        "title": "CAG Issues Report Citing Fiscal Indiscipline, Last‑Minute Spending",
-        "summary": "The Comptroller and Auditor General released a report overnight criticizing a state government's fiscal indiscipline, highlighting underspending on revenue lines, low capital expenditure execution, and increased last‑minute expenses that raise accountability questions ahead of budget planning, the CAG document showed.",
+        "title": "Mumbai‑Hyderabad Expressway, Metro Expansion Announced",
+        "summary": "Maharashtra Deputy CM announced plans overnight for a Mumbai–Hyderabad expressway, metro expansion and power tariff cuts during the winter session's concluding debate, saying the measures aim to accelerate connectivity and urban infrastructure development across the region.",
         "category": "economy",
         "source": {
           "name": "Unknown Source",
@@ -159,9 +164,9 @@
         "article_id": "india-2025-12-15-morning-008"
       },
       {
-        "title": "Gurugram Police Recruit 450 Residents As 'Cyber Marshals'",
-        "summary": "Gurugram police launched a community cyber‑safety initiative late last night, onboarding 450 resident volunteers as 'Cyber Marshals' to disseminate fraud alerts and digital safety tips in housing societies as part of a broader effort to curb online scams.",
-        "category": "technology",
+        "title": "Blast at Jalandhar Scrap Shop Kills One, Injures Two",
+        "summary": "A blast at a scrap shop in Jalandhar late on Sunday killed one person and injured two others; police identified the deceased and began a probe into the cause of the explosion with preliminary overnight teams inspecting the site for evidence.",
+        "category": "world",
         "source": {
           "name": "Unknown Source",
           "url": "https://example.com/"
@@ -176,8 +181,8 @@
         "article_id": "india-2025-12-15-morning-009"
       },
       {
-        "title": "Karnataka Prisons Chief Seizes 13 Phones, Drugs In Overnight Crackdown",
-        "summary": "Karnataka's new prisons director ordered a statewide overnight crackdown that led to the seizure of 13 mobile phones and contraband packets inside multiple detention centres; authorities said the action was part of immediate reform measures after his appointment.",
+        "title": "Indian‑American Leader Urges US Tariff Reversal on Bilateral Trade",
+        "summary": "An Indian‑American community leader called overnight for the reversal of recent US tariffs to prevent strain in India–US relations and urged policymakers in both countries to seek immediate dialogue to stabilise trade ties, commenting in a press release and interviews circulated to media this morning.",
         "category": "world",
         "source": {
           "name": "Unknown Source",
@@ -196,20 +201,19 @@
     "metadata": {
       "article_count": 10,
       "categories_distribution": {
-        "world": 5,
+        "politics": 3,
         "environment": 1,
-        "politics": 2,
-        "economy": 1,
-        "technology": 1
+        "world": 5,
+        "economy": 1
       },
       "llm_model": "sonar",
       "llm_usage": {
         "prompt_tokens": 569,
-        "completion_tokens": 926,
-        "total_tokens": 1495
+        "completion_tokens": 893,
+        "total_tokens": 1462
       },
       "processing_time_seconds": 0.0,
-      "workflow_run_id": "20221300247"
+      "workflow_run_id": "20221583215"
     }
   }
 }
