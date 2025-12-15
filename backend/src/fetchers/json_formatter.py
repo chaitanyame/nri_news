@@ -251,10 +251,10 @@ class JSONFormatter:
         # Limit to 10 articles
         articles_data = articles_data[:10]
         
-        # Ensure minimum 4 articles
-        if len(articles_data) < 4:
+        # Ensure minimum 3 articles
+        if len(articles_data) < 3:
             logger.warning(
-                "Fewer than 4 articles in response, this may fail validation",
+                "Fewer than 3 articles in response, this may fail validation",
                 extra={
                     "article_count": len(articles_data),
                     "region": region,

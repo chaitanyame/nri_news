@@ -265,7 +265,7 @@ Guidelines:
             time_window = "published between 7 AM and 9 PM today"
             focus_note = "Focus on today's daytime developments and breaking news. DO NOT include stories from last night's bulletin (9 PM yesterday - 7 AM today) unless there are significant NEW developments."
         
-        return f"""Search the web and identify the top 10 most important news stories in {region_name} for {time_context} ({date}).
+        return f"""Search the web and identify the top 5-10 most important news stories in {region_name} for {time_context} ({date}).
 
 For each story, provide:
 1. Title (max 12 words, factual and informative, NOT sensationalized)
@@ -282,7 +282,7 @@ Requirements:
 - Prefer articles from established, credible news outlets
 - Ensure summaries are self-contained (readable without clicking through)
 - Include actual source citations from your web search results for each article
-- If fewer than 10 stories meet criteria, return available stories only
+- Return at least 5 stories if available, minimum 3 during slow news periods
 - Focus on important news delivery, not sensationalism
 
 Return response as JSON:
