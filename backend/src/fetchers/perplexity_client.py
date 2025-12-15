@@ -119,7 +119,7 @@ class PerplexityClient:
             user_prompt = self._get_default_user_prompt(region, period, date)
         
         try:
-            # Make API call with search recency filter
+            # Make API call to Perplexity
             response = self.client.chat.completions.create(
                 model=self.model,
                 temperature=self.temperature,
@@ -127,11 +127,7 @@ class PerplexityClient:
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
-                ],
-                # Perplexity-specific parameters
-                search_recency_filter="day",  # Only today's news
-                return_citations=True,
-                return_images=False
+                ]
             )
             
             logger.info(
