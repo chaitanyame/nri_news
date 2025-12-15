@@ -64,8 +64,8 @@ class BulletinLoader {
         
         const bulletin = data.bulletin;
         
-        // Required fields
-        const requiredFields = ['id', 'region', 'date', 'period', 'generated_at', 'version', 'articles', 'metadata'];
+        // Required fields (only essential ones - id and version are optional for backwards compatibility)
+        const requiredFields = ['region', 'date', 'period', 'generated_at', 'articles'];
         for (const field of requiredFields) {
             if (!(field in bulletin)) {
                 throw new Error(`Invalid bulletin format: missing field "${field}"`);
@@ -77,22 +77,17 @@ class BulletinLoader {
             throw new Error('Invalid bulletin format: articles must be an array');
         }
         
-        if (bulletin.articles.length < 5 || bulletin.articles.length > 10) {
-            throw new Error(`Invalid bulletin format: expected 5-10 articles, got ${bulletin.articles.length}`);
+        if (bulletin.articles.length === 0) {
+            throw new Error('Invalid bulletin format: no articles found');
         }
         
-        // Validate each article
+        // Validate each article (with lenient field checking)
         bulletin.articles.forEach((article, index) => {
-            const requiredArticleFields = ['title', 'summary', 'category', 'source', 'citations', 'article_id'];
+            const requiredArticleFields = ['title', 'summary', 'category'];
             for (const field of requiredArticleFields) {
                 if (!(field in article)) {
                     throw new Error(`Invalid article format at index ${index}: missing field "${field}"`);
                 }
-            }
-            
-            // Validate citations
-            if (!Array.isArray(article.citations) || article.citations.length === 0) {
-                throw new Error(`Invalid article format at index ${index}: citations must be a non-empty array`);
             }
         });
     }
