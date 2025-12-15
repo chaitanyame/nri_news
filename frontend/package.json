@@ -1,0 +1,19 @@
+{
+  "name": "global-news-brief-frontend",
+  "version": "1.0.0",
+  "description": "Frontend testing for Global News Brief platform",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:report": "playwright show-report"
+  },
+  "keywords": ["news", "aggregation", "playwright", "testing"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

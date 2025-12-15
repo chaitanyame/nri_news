@@ -26,13 +26,13 @@ created: 2025-12-15
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create backend directory structure at `/workspaces/us_ind_world_news/backend/` with `src/fetchers/`, `src/models/`, `src/utils/`, `scripts/`, `tests/` subdirectories
-- [ ] T002 Create frontend directory structure at `/workspaces/us_ind_world_news/frontend/` with `css/`, `js/`, `assets/` subdirectories
-- [ ] T003 Create data directory structure at `/workspaces/us_ind_world_news/data/` with `usa/`, `india/`, `world/` subdirectories
-- [ ] T004 Initialize Python virtual environment and create `/workspaces/us_ind_world_news/backend/requirements.txt` with `openai>=1.0.0`, `pydantic>=2.0.0`, `python-dotenv>=1.0.0`, `pytest>=7.0.0`, `pytest-asyncio>=0.21.0`, `pytest-cov>=4.0.0`
-- [ ] T005 [P] Create `.env.example` at `/workspaces/us_ind_world_news/backend/.env.example` with `PERPLEXITY_API_KEY=your_api_key_here`
-- [ ] T005a [P] Install Playwright for frontend testing in `/workspaces/us_ind_world_news/frontend/` with `npm init -y && npm install -D @playwright/test && npx playwright install`
-- [ ] T006 [P] Create `.gitignore` at `/workspaces/us_ind_world_news/.gitignore` to exclude `venv/`, `*.pyc`, `__pycache__/`, `.env`, `.pytest_cache/`
+- [X] T001 Create backend directory structure at `/workspaces/us_ind_world_news/backend/` with `src/fetchers/`, `src/models/`, `src/utils/`, `scripts/`, `tests/` subdirectories
+- [X] T002 Create frontend directory structure at `/workspaces/us_ind_world_news/frontend/` with `css/`, `js/`, `assets/` subdirectories
+- [X] T003 Create data directory structure at `/workspaces/us_ind_world_news/data/` with `usa/`, `india/`, `world/` subdirectories
+- [X] T004 Initialize Python virtual environment and create `/workspaces/us_ind_world_news/backend/requirements.txt` with `openai>=1.0.0`, `pydantic>=2.0.0`, `python-dotenv>=1.0.0`, `pytest>=7.0.0`, `pytest-asyncio>=0.21.0`, `pytest-cov>=4.0.0`
+- [X] T005 [P] Create `.env.example` at `/workspaces/us_ind_world_news/backend/.env.example` with `PERPLEXITY_API_KEY=your_api_key_here`
+- [X] T005a [P] Install Playwright for frontend testing in `/workspaces/us_ind_world_news/frontend/` with `npm init -y && npm install -D @playwright/test && npx playwright install`
+- [X] T006 [P] Create `.gitignore` at `/workspaces/us_ind_world_news/.gitignore` to exclude `venv/`, `*.pyc`, `__pycache__/`, `.env`, `.pytest_cache/`
 
 ---
 
