@@ -16,14 +16,15 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 
   webServer: {
-    command: 'python3 -m http.server 8000',
+    command: 'mkdir -p ../_site && cp -r . ../_site/ && cp -r ../data ../_site/data && cd ../_site && python3 -m http.server 8000',
     url: 'http://localhost:8000',
     reuseExistingServer: !process.env.CI,
+    timeout: 30000,
   },
 });
