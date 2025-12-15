@@ -1,6 +1,6 @@
 /**
  * Theme Manager
- * Handles dark/light mode toggle with system preference detection and localStorage persistence
+ * Handles dark/light mode toggle - always defaults to dark theme on page load
  */
 
 class ThemeManager {
@@ -11,21 +11,11 @@ class ThemeManager {
     }
     
     /**
-     * Get initial theme from localStorage or system preference
+     * Get initial theme - always dark on page load
      */
     getInitialTheme() {
-        // Check localStorage first
-        const stored = localStorage.getItem('theme');
-        if (stored) {
-            return stored;
-        }
-        
-        // Fall back to system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-        }
-        
-        return 'light';
+        // Always default to dark theme on every page load
+        return 'dark';
     }
     
     /**
@@ -40,17 +30,6 @@ class ThemeManager {
             document.addEventListener('DOMContentLoaded', () => this.attachListeners());
         } else {
             this.attachListeners();
-        }
-        
-        // Listen for system theme changes
-        if (window.matchMedia) {
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-                // Only auto-switch if user hasn't explicitly set a preference
-                if (!localStorage.getItem('theme')) {
-                    this.theme = e.matches ? 'dark' : 'light';
-                    this.applyTheme(this.theme);
-                }
-            });
         }
     }
     
@@ -105,12 +84,12 @@ class ThemeManager {
     }
     
     /**
-     * Toggle theme
+     * Toggle theme (temporary - resets to dark on page refresh)
      */
     toggle() {
         this.theme = this.theme === 'light' ? 'dark' : 'light';
         this.applyTheme(this.theme);
-        localStorage.setItem('theme', this.theme);
+        // Note: Theme preference is not persisted - always resets to dark on refresh
         
         // Dispatch custom event for other components
         window.dispatchEvent(new CustomEvent('themechange', { 
