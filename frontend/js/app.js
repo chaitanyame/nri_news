@@ -6,7 +6,7 @@
 class NewsApp {
     constructor() {
         this.loader = new BulletinLoader();
-        this.currentRegion = 'all';
+        this.currentRegion = 'usa';
         this.currentPeriod = 'morning';
         this.currentDate = this.getTodayDate();
         this.allArticles = [];
@@ -227,9 +227,7 @@ class NewsApp {
         let articles = this.allArticles;
         
         // Filter by region
-        if (this.currentRegion !== 'all') {
-            articles = articles.filter(a => a._region === this.currentRegion);
-        }
+        articles = articles.filter(a => a._region === this.currentRegion);
         
         // Filter by search query
         if (this.searchQuery) {
