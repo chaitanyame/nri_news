@@ -10,7 +10,7 @@
   "india": {
     "2025-12-15": {
       "morning": {
-        "filepath": "data/india/2025-12-15-morning.json",
+        "filepath": "india/2025-12-15-morning.json",
         "updated_at": "2025-12-15T05:29:44.667429+00:00"
       }
     }
