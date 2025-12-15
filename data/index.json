@@ -16,6 +16,10 @@
       "morning": {
         "filepath": "india/2025-12-15-morning.json",
         "updated_at": "2025-12-15T05:29:44.667429+00:00"
+      },
+      "evening": {
+        "filepath": "india/2025-12-15-evening.json",
+        "updated_at": "2025-12-15T06:57:47.600670+00:00"
       }
     }
   },
