@@ -185,10 +185,25 @@ class PerplexityClient:
         # Extract message content
         if response.choices and len(response.choices) > 0:
             data["content"] = response.choices[0].message.content
+            
+            # Try to extract citations from message object (Perplexity-specific)
+            message = response.choices[0].message
+            if hasattr(message, "citations"):
+                data["citations"] = message.citations
         
-        # Extract citations (if available in response)
-        if hasattr(response, "citations"):
+        # Also check top-level citations attribute
+        if hasattr(response, "citations") and response.citations:
             data["citations"] = response.citations
+        
+        # Log citation info for debugging
+        if data["citations"]:
+            logger.debug(
+                "Extracted citations from response",
+                extra={
+                    "citation_count": len(data["citations"]),
+                    "citation_types": [type(c).__name__ for c in data["citations"][:3]]
+                }
+            )
         
         # Extract usage statistics
         if hasattr(response, "usage") and response.usage:
