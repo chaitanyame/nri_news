@@ -29,8 +29,9 @@ created: 2025-12-15
 - [ ] T001 Create backend directory structure at `/workspaces/us_ind_world_news/backend/` with `src/fetchers/`, `src/models/`, `src/utils/`, `scripts/`, `tests/` subdirectories
 - [ ] T002 Create frontend directory structure at `/workspaces/us_ind_world_news/frontend/` with `css/`, `js/`, `assets/` subdirectories
 - [ ] T003 Create data directory structure at `/workspaces/us_ind_world_news/data/` with `usa/`, `india/`, `world/` subdirectories
-- [ ] T004 Initialize Python virtual environment and create `/workspaces/us_ind_world_news/backend/requirements.txt` with `openai>=1.0.0`, `pydantic>=2.0.0`, `python-dotenv>=1.0.0`, `pytest>=7.0.0`
+- [ ] T004 Initialize Python virtual environment and create `/workspaces/us_ind_world_news/backend/requirements.txt` with `openai>=1.0.0`, `pydantic>=2.0.0`, `python-dotenv>=1.0.0`, `pytest>=7.0.0`, `pytest-asyncio>=0.21.0`, `pytest-cov>=4.0.0`
 - [ ] T005 [P] Create `.env.example` at `/workspaces/us_ind_world_news/backend/.env.example` with `PERPLEXITY_API_KEY=your_api_key_here`
+- [ ] T005a [P] Install Playwright for frontend testing in `/workspaces/us_ind_world_news/frontend/` with `npm init -y && npm install -D @playwright/test && npx playwright install`
 - [ ] T006 [P] Create `.gitignore` at `/workspaces/us_ind_world_news/.gitignore` to exclude `venv/`, `*.pyc`, `__pycache__/`, `.env`, `.pytest_cache/`
 
 ---
@@ -47,6 +48,11 @@ created: 2025-12-15
 - [ ] T010 [P] Implement structured logger in `/workspaces/us_ind_world_news/backend/src/utils/logger.py` (JSON format with timestamp, level, message, context fields)
 - [ ] T011 Create Perplexity API client wrapper in `/workspaces/us_ind_world_news/backend/src/fetchers/perplexity_client.py` (OpenAI client with base_url='https://api.perplexity.ai', sonar model, temp=0.3, max_tokens=1000, search_recency_filter='day', integrate retry logic from T009)
 - [ ] T012 Implement JSON formatter in `/workspaces/us_ind_world_news/backend/src/fetchers/json_formatter.py` (convert Perplexity API response to Bulletin/Article schema, validate with Pydantic models)
+- [ ] T012a [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_bulletin_model.py` (test Pydantic validation, required fields, enum values, date formats)
+- [ ] T012b [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_article_model.py` (test title length limits, summary validation, category enum, citation structure)
+- [ ] T012c [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_retry_logic.py` (test exponential backoff timing, max retry limit, exception handling)
+- [ ] T012d Create pytest integration tests in `/workspaces/us_ind_world_news/backend/tests/test_perplexity_client.py` (mock API responses, test prompt construction, response parsing, error scenarios with retries)
+- [ ] T012e Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_json_formatter.py` (test API response to Bulletin conversion, schema validation, error handling for malformed data)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -69,6 +75,9 @@ created: 2025-12-15
 - [ ] T019 [US1] Add responsive breakpoints in `/workspaces/us_ind_world_news/frontend/css/styles.css` (mobile 320px: vertical stack, tablet 768px: 2 columns, desktop 1440px: 3 columns)
 - [ ] T020 [US1] Add loading state UI in `/workspaces/us_ind_world_news/frontend/js/app.js` (skeleton cards, spinner, "Loading news..." message while fetching data)
 - [ ] T021 [US1] Add error state UI in `/workspaces/us_ind_world_news/frontend/js/app.js` (show "Unable to load bulletin" message on fetch failure, retry button)
+- [ ] T021a [P] [US1] Create Playwright E2E test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-morning-bulletin.spec.js` (test bulletin loads, region filter works, cards render correctly, citations open in new tab)
+- [ ] T021b [P] [US1] Create Playwright responsive test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-responsive-layout.spec.js` (test 320px mobile, 768px tablet, 1440px desktop viewports, card stacking, no horizontal scroll)
+- [ ] T021c [P] [US1] Create Playwright accessibility test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-accessibility.spec.js` (test WCAG 2.1 AA compliance, contrast ratios, ARIA labels, keyboard navigation)
 
 **Checkpoint**: User Story 1 complete - users can view morning regional news with responsive design
 
@@ -95,6 +104,8 @@ created: 2025-12-15
 - [ ] T032 [US4] Add workflow error notification logic in all 6 workflow files (create GitHub issue on 2 consecutive failures with workflow name, error log, timestamp)
 - [ ] T033 [P] [US4] Create GitHub Pages deployment workflow at `/workspaces/us_ind_world_news/.github/workflows/deploy-pages.yml` (trigger on push to main, deploy `frontend/` directory to GitHub Pages)
 - [ ] T034 [US4] Add `PERPLEXITY_API_KEY` to GitHub repository secrets (navigate to Settings → Secrets → Actions, add new secret)
+- [ ] T034a [P] [US4] Create pytest integration test in `/workspaces/us_ind_world_news/backend/tests/test_fetch_news_script.py` (test CLI argument parsing, prompt template loading, JSON file creation, error handling with mocked Perplexity API)
+- [ ] T034b [US4] Create pytest end-to-end test in `/workspaces/us_ind_world_news/backend/tests/test_workflow_simulation.py` (simulate full workflow execution, verify JSON output schema, test cleanup logic, assert file permissions)
 
 **Checkpoint**: User Story 4 complete - automated workflows fetch and publish news twice daily for all regions
 
@@ -114,6 +125,8 @@ created: 2025-12-15
 - [ ] T038 [US2] Add auto-detection of current period in `/workspaces/us_ind_world_news/frontend/js/app.js` (get current hour, if 7 AM - 8 PM → morning, if 9 PM - 6 AM → evening)
 - [ ] T039 [US2] Add region transition animation in `/workspaces/us_ind_world_news/frontend/css/styles.css` (fade-out old cards, fade-in new cards, 200ms duration)
 - [ ] T040 [US2] Update region filter buttons in `/workspaces/us_ind_world_news/frontend/js/app.js` to preserve period selection when switching regions (maintain `currentPeriod` state across region changes)
+- [ ] T040a [P] [US2] Create Playwright test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-period-toggle.spec.js` (test morning/evening toggle, auto-detection, state persistence, region switching preserves period)
+- [ ] T040b [P] [US2] Create Playwright test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-multi-region.spec.js` (test USA/India/World switching without reload, distinct content verification, transition animations)
 
 **Checkpoint**: User Story 2 complete - users can view evening bulletins and switch between all regions seamlessly
 
@@ -137,6 +150,8 @@ created: 2025-12-15
 - [ ] T048 [US3] Implement theme manager in `/workspaces/us_ind_world_news/frontend/js/theme-manager.js` (detect system preference with `window.matchMedia('prefers-color-scheme: dark')`, load saved preference from localStorage, apply theme by adding/removing `dark` class on `<html>`)
 - [ ] T049 [US3] Add theme toggle button in `/workspaces/us_ind_world_news/frontend/index.html` header (sun/moon icon, positioned in top-right corner)
 - [ ] T050 [US3] Add theme toggle functionality in `/workspaces/us_ind_world_news/frontend/js/theme-manager.js` (handle toggle button click, swap theme, save preference to localStorage as `theme: 'light'|'dark'`)
+- [ ] T050a [P] [US3] Create Playwright test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-historical-navigation.spec.js` (test 7-day date picker, historical bulletin loading, missing data handling, 8th day restriction)
+- [ ] T050b [P] [US3] Create Playwright test in `/workspaces/us_ind_world_news/frontend/tests/e2e/test-dark-mode.spec.js` (test theme toggle, localStorage persistence, system preference detection, contrast ratio validation for WCAG 2.1 AA)
 
 **Checkpoint**: User Story 3 complete - users can browse historical bulletins and customize theme preference
 
@@ -149,7 +164,11 @@ created: 2025-12-15
 - [ ] T051 [P] Implement 7-day retention cleanup script in `/workspaces/us_ind_world_news/backend/scripts/cleanup_old_data.py` (scan `data/` directories, parse filenames, delete files older than 7 days from current date)
 - [ ] T052 [P] Create cleanup workflow at `/workspaces/us_ind_world_news/.github/workflows/cleanup-old-data.yml` (cron: '0 0 * * *' for midnight UTC, run on self-hosted runner, execute cleanup script, commit deletions to main branch)
 - [ ] T053 [P] Create `data/index.json` generation logic in `/workspaces/us_ind_world_news/backend/scripts/fetch_news.py` (after writing bulletin, update index with list of available bulletins for fast frontend navigation)
-- [ ] T054 [P] Add Lighthouse performance testing script in `/workspaces/us_ind_world_news/backend/tests/test_performance.py` (use `playwright` to audit page, assert score >90, check page weight <500KB)
+- [ ] T054 [P] Create Playwright performance test in `/workspaces/us_ind_world_news/frontend/tests/performance/test-lighthouse.spec.js` (run Lighthouse audit, assert score >90, check page weight <500KB, measure Time to Interactive)
+- [ ] T054a [P] Create pytest coverage report config in `/workspaces/us_ind_world_news/backend/.coveragerc` (exclude venv, __pycache__, tests; set minimum coverage to 80%)
+- [ ] T054b [P] Create Playwright config in `/workspaces/us_ind_world_news/frontend/playwright.config.js` (configure browsers: chromium, firefox, webkit; set baseURL, screenshots on failure, video on retry)
+- [ ] T054c [P] Create GitHub Actions test workflow at `/workspaces/us_ind_world_news/.github/workflows/test-backend.yml` (run pytest with coverage on PRs, fail if coverage <80%, upload coverage report)
+- [ ] T054d [P] Create GitHub Actions test workflow at `/workspaces/us_ind_world_news/.github/workflows/test-frontend.yml` (run Playwright tests on PRs, test all browsers, upload test artifacts)
 - [ ] T055 Add comprehensive error messages in `/workspaces/us_ind_world_news/frontend/js/app.js` (network timeout: "Connection slow - retrying...", 404: "Bulletin not published yet", 500: "Service temporarily unavailable")
 - [ ] T056 [P] Add meta tags in `/workspaces/us_ind_world_news/frontend/index.html` for SEO (title: "Global News Brief", description: "AI-summarized news from India, USA, and World", og:image, viewport)
 - [ ] T057 [P] Add favicon and Apple touch icon in `/workspaces/us_ind_world_news/frontend/assets/` (newspaper icon, 32×32 and 180×180 sizes)
@@ -197,20 +216,26 @@ Phase 1 (Setup) → Phase 2 (Foundation) → Phase 3 (US1) + Phase 4 (US4) → P
 
 ## Task Summary
 
-**Total Tasks**: 60  
-**Parallelizable Tasks**: 28 (47%)  
+**Total Tasks**: 77 (includes 17 testing tasks)  
+**Parallelizable Tasks**: 40 (52%)  
 **Tasks per User Story**:
-- Setup: 6 tasks
-- Foundation: 6 tasks
-- US1 (Regional Morning News): 9 tasks
-- US4 (Automated Workflows): 13 tasks
-- US2 (Evening & Multi-Region): 6 tasks
-- US3 (Historical & Dark Mode): 10 tasks
-- Polish: 10 tasks
+- Setup: 7 tasks (includes Playwright setup)
+- Foundation: 11 tasks (includes 5 pytest unit tests)
+- US1 (Regional Morning News): 12 tasks (includes 3 Playwright E2E tests)
+- US4 (Automated Workflows): 15 tasks (includes 2 pytest integration tests)
+- US2 (Evening & Multi-Region): 8 tasks (includes 2 Playwright tests)
+- US3 (Historical & Dark Mode): 12 tasks (includes 2 Playwright tests)
+- Polish: 12 tasks (includes 3 test infrastructure + 2 CI/CD workflows)
 
-**MVP Scope (US1 + US4)**: Tasks T001-T034 (34 tasks)  
-**Estimated MVP Timeline**: 3-4 days with parallel execution  
-**Full Feature Timeline**: 6-7 days with polish phase
+**Testing Coverage**:
+- Backend: 7 pytest test files (unit + integration + E2E)
+- Frontend: 7 Playwright test files (E2E + responsive + accessibility + performance)
+- CI/CD: 2 automated test workflows (backend + frontend)
+- Target Coverage: 80% minimum for backend
+
+**MVP Scope (US1 + US4)**: Tasks T001-T034b (49 tasks including tests)  
+**Estimated MVP Timeline**: 4-5 days with parallel execution (includes test writing)  
+**Full Feature Timeline**: 7-8 days with polish phase and comprehensive testing
 
 ---
 

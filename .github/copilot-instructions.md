@@ -1,3 +1,4 @@
+
 # Global News Aggregation Platform Development Guidelines
 
 Auto-generated from feature plans. Last updated: 2025-12-15
@@ -9,12 +10,14 @@ Auto-generated from feature plans. Last updated: 2025-12-15
 - **OpenAI Python Library**: Client for Perplexity API integration
 - **Pydantic**: Data validation and schema enforcement
 - **Perplexity API (sonar model)**: LLM for news summarization with citations
+- **pytest**: Backend testing framework with pytest-asyncio and pytest-cov for coverage
 
 ### Frontend
 - **Vanilla JavaScript (ES6+)**: No framework dependencies
 - **Tailwind CSS**: Utility-first CSS framework (CDN-delivered)
 - **DayJS**: Lightweight date manipulation library
 - **Google Material Symbols**: Icon library (CDN-delivered)
+- **Playwright**: End-to-end testing framework for frontend (Chromium, Firefox, WebKit)
 
 ### Infrastructure
 - **GitHub Actions**: Scheduled workflows for automation
@@ -106,6 +109,12 @@ python backend/scripts/cleanup_old_data.py
 # Run tests
 cd backend && pytest -v
 cd backend && pytest tests/test_perplexity_client.py -v
+
+# Run tests with coverage
+cd backend && pytest --cov=src --cov-report=html --cov-report=term
+
+# Run specific test file
+cd backend && pytest tests/test_bulletin_model.py -v
 ```
 
 ### Frontend Development
@@ -116,6 +125,23 @@ cd frontend && python3 -m http.server 8000
 # Open http://localhost:8000
 
 # No build step required (vanilla JS + Tailwind CDN)
+
+# Run Playwright tests
+cd frontend && npx playwright test
+
+# Run Playwright tests in headed mode (watch browser)
+cd frontend && npx playwright test --headed
+
+# Run specific test file
+cd frontend && npx playwright test tests/e2e/test-morning-bulletin.spec.js
+
+# Run tests in specific browser
+cd frontend && npx playwright test --project=chromium
+cd frontend && npx playwright test --project=firefox
+cd frontend && npx playwright test --project=webkit
+
+# Generate Playwright test report
+cd frontend && npx playwright show-report
 ```
 
 ### GitHub Actions
@@ -228,6 +254,91 @@ const theme = localStorage.getItem('theme') || 'light';
 </div>
 ```
 
+### Testing (pytest + Playwright)
+
+```python
+# pytest: Backend unit tests
+import pytest
+from src.models.bulletin import Bulletin
+
+def test_bulletin_validation():
+    """Test Bulletin model validates required fields."""
+    with pytest.raises(ValidationError):
+        Bulletin(region="invalid")  # Should fail on invalid enum
+
+@pytest.mark.asyncio
+async def test_perplexity_client_retry():
+    """Test retry logic with exponential backoff."""
+    client = PerplexityClient()
+    with pytest.raises(MaxRetriesExceeded):
+        await client.fetch_news(mock_fail=True)
+
+# pytest: Mock external APIs
+@pytest.fixture
+def mock_perplexity_response():
+    return {
+        "choices": [{"message": {"content": '{"articles": [...]}'}}]
+    }
+
+def test_json_formatter(mock_perplexity_response):
+    formatter = JSONFormatter()
+    bulletin = formatter.format(mock_perplexity_response)
+    assert bulletin.region == "usa"
+    assert len(bulletin.articles) >= 5
+```
+
+```javascript
+// Playwright: Frontend E2E tests
+import { test, expect } from '@playwright/test';
+
+test('morning bulletin loads with correct region', async ({ page }) => {
+  await page.goto('/');
+  
+  // Select USA region
+  await page.click('button:has-text("USA")');
+  
+  // Wait for bulletin to load
+  await expect(page.locator('.bulletin-card')).toHaveCount(10, { timeout: 5000 });
+  
+  // Verify citations open in new tab
+  const [newPage] = await Promise.all([
+    page.waitForEvent('popup'),
+    page.click('a.citation-link:first-child')
+  ]);
+  expect(newPage.url()).toContain('http');
+});
+
+test('responsive layout on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto('/');
+  
+  // Verify cards stack vertically
+  const cards = page.locator('.bulletin-card');
+  const firstCard = cards.first();
+  const secondCard = cards.nth(1);
+  
+  const firstBox = await firstCard.boundingBox();
+  const secondBox = await secondCard.boundingBox();
+  
+  // Second card should be below first card (not side-by-side)
+  expect(secondBox.y).toBeGreaterThan(firstBox.y + firstBox.height);
+});
+
+test('dark mode toggle persists', async ({ page }) => {
+  await page.goto('/');
+  
+  // Toggle dark mode
+  await page.click('button[aria-label="Toggle theme"]');
+  
+  // Verify dark class applied
+  await expect(page.locator('html')).toHaveClass(/dark/);
+  
+  // Reload and verify persistence
+  await page.reload();
+  await expect(page.locator('html')).toHaveClass(/dark/);
+});
+```
+
 ## Recent Changes
 
 ### Feature 1-global-news-brief (2025-12-15)
@@ -281,3 +392,12 @@ const theme = localStorage.getItem('theme') || 'light';
 - Keep exactly 7 days of bulletins
 - Cleanup runs daily at midnight UTC
 - Delete files older than 7 days (by date, not generated_at)
+
+### Testing Policy
+- **Backend Coverage**: Minimum 80% code coverage with pytest
+- **Frontend E2E**: All user stories must have Playwright tests
+- **Accessibility**: WCAG 2.1 AA compliance verified via Playwright
+- **Performance**: Lighthouse score >90 enforced in CI/CD
+- **Test-First**: Write tests before implementation (TDD preferred)
+- **Autonomous Resolution**: All test failures and issues must be resolved immediately without asking for approval
+- **CI/CD Gates**: PRs blocked if tests fail or coverage drops below 80%
