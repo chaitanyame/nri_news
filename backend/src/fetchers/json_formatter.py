@@ -301,11 +301,32 @@ class JSONFormatter:
         # Fall back to first citation if available
         if citations_data and len(citations_data) >= article_index:
             citation = citations_data[article_index - 1]
-            return Source(
-                name=citation.get("publisher", "Unknown Source"),
-                url=citation.get("url", "https://example.com"),
-                published_at=citation.get("publishedDate")
-            )
+            
+            # Handle citation as string (URL) or dict
+            if isinstance(citation, str):
+                # Citation is just a URL string
+                return Source(
+                    name="Unknown Source",
+                    url=citation,
+                    published_at=None
+                )
+            elif isinstance(citation, dict):
+                # Citation is a structured object
+                return Source(
+                    name=citation.get("publisher", "Unknown Source"),
+                    url=citation.get("url", "https://example.com"),
+                    published_at=citation.get("publishedDate")
+                )
+            else:
+                # Unexpected type, log and use default
+                logger.warning(
+                    "Unexpected citation type",
+                    extra={"type": type(citation).__name__, "citation": str(citation)}
+                )
+                return Source(
+                    name="Unknown Source",
+                    url="https://example.com"
+                )
         
         # Default source
         return Source(
@@ -340,17 +361,35 @@ class JSONFormatter:
         
         for citation_data in relevant_citations:
             try:
-                citation = Citation(
-                    title=citation_data.get("title", "Reference"),
-                    url=citation_data.get("url", "https://example.com"),
-                    publisher=citation_data.get("publisher", "Unknown")
-                )
+                # Handle citation as string (URL) or dict
+                if isinstance(citation_data, str):
+                    # Citation is just a URL string
+                    citation = Citation(
+                        title="Reference",
+                        url=citation_data,
+                        publisher="Unknown"
+                    )
+                elif isinstance(citation_data, dict):
+                    # Citation is a structured object
+                    citation = Citation(
+                        title=citation_data.get("title", "Reference"),
+                        url=citation_data.get("url", "https://example.com"),
+                        publisher=citation_data.get("publisher", "Unknown")
+                    )
+                else:
+                    # Skip unexpected types
+                    logger.warning(
+                        "Skipping citation with unexpected type",
+                        extra={"type": type(citation_data).__name__}
+                    )
+                    continue
+                    
                 citations.append(citation)
             except ValidationError as e:
                 logger.warning(
                     "Skipping invalid citation",
                     extra={
-                        "citation_data": citation_data,
+                        "citation_data": str(citation_data),
                         "error": str(e)
                     }
                 )
