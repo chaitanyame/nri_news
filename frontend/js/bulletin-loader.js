@@ -5,7 +5,8 @@
 
 class BulletinLoader {
     constructor() {
-        this.baseURL = '/data';
+        // Use relative path to work with GitHub Pages subdirectory
+        this.baseURL = './data';
         this.cache = new Map();
     }
     
