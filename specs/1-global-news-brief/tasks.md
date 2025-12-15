@@ -48,15 +48,15 @@ created: 2025-12-15
 - [X] T010 [P] Implement structured logger in `/workspaces/us_ind_world_news/backend/src/utils/logger.py` (JSON format with timestamp, level, message, context fields)
 - [X] T011 Create Perplexity API client wrapper in `/workspaces/us_ind_world_news/backend/src/fetchers/perplexity_client.py` (OpenAI client with base_url='https://api.perplexity.ai', sonar model, temp=0.3, max_tokens=1000, search_recency_filter='day', integrate retry logic from T009)
 - [X] T012 Implement JSON formatter in `/workspaces/us_ind_world_news/backend/src/fetchers/json_formatter.py` (convert Perplexity API response to Bulletin/Article schema, validate with Pydantic models)
-- [ ] T012a [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_bulletin_model.py` (test Pydantic validation, required fields, enum values, date formats) - **34/66 tests failing - enum case mismatch, need fixes**
-- [ ] T012b [P] Create pytest unit tests in `/works paces/us_ind_world_news/backend/tests/test_article_model.py` (test title length limits, summary validation, category enum, citation structure) - **Tests created but failing**
-- [ ] T012c [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_retry_logic.py` (test exponential backoff timing, max retry limit, exception handling) - **Tests created but failing**
-- [ ] T012d Create pytest integration tests in `/workspaces/us_ind_world_news/backend/tests/test_perplexity_client.py` (mock API responses, test prompt construction, response parsing, error scenarios with retries) - **Tests passing (12/12)**
-- [ ] T012e Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_json_formatter.py` (test API response to Bulletin conversion, schema validation, error handling for malformed data) - **Tests created but failing**
+- [X] T012a [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_bulletin_model.py` (test Pydantic validation, required fields, enum values, date formats) - **8/8 tests passing ✅**
+- [X] T012b [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_article_model.py` (test title length limits, summary validation, category enum, citation structure) - **21/21 tests passing ✅**
+- [X] T012c [P] Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_retry_logic.py` (test exponential backoff timing, max retry limit, exception handling) - **13/13 tests passing ✅**
+- [X] T012d Create pytest integration tests in `/workspaces/us_ind_world_news/backend/tests/test_perplexity_client.py` (mock API responses, test prompt construction, response parsing, error scenarios with retries) - **12/12 tests passing ✅**
+- [X] T012e Create pytest unit tests in `/workspaces/us_ind_world_news/backend/tests/test_json_formatter.py` (test API response to Bulletin conversion, schema validation, error handling for malformed data) - **12/12 tests passing ✅**
 
-**Note**: Test suite has 34 failures due to enum case sensitivity (CategoryEnum.politics vs POLITICS), missing processing_time_seconds, and Mock __name__ issues. Core functionality works, tests need minor enum/typing fixes. Proceeding to Phase 3 frontend as tests don't block MVP implementation.
+**Test Results**: All 66 tests passing (100%). Coverage: 89% (379 lines tested, 43 missed) - exceeds 80% minimum requirement. Fixed enum case sensitivity, timezone deprecation warnings, Mock __name__ attributes, and duplicate article IDs.
 
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
+**Checkpoint**: Phase 2 Foundation COMPLETE ✅ - All tests passing, coverage above threshold, ready for Phase 3 frontend implementation
 
 ---
 
