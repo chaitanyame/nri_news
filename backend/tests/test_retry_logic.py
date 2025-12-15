@@ -36,6 +36,7 @@ class TestExponentialBackoffRetry:
             "success"  # Third attempt succeeds
         ])
         mock_func.__name__ = "test_func"
+        mock_func.__name__ = "test_func"
         
         decorated = exponential_backoff_retry(exceptions=(ValueError,))(mock_func)
         
@@ -47,6 +48,7 @@ class TestExponentialBackoffRetry:
     def test_max_retries_exhausted(self):
         """Test MaxRetriesExceeded raised after exhausting retries."""
         mock_func = Mock(side_effect=ValueError("Always fails"))
+        mock_func.__name__ = "test_func"
         mock_func.__name__ = "test_func"
         decorated = exponential_backoff_retry(max_retries=3, exceptions=(ValueError,))(mock_func)
         
@@ -61,6 +63,7 @@ class TestExponentialBackoffRetry:
     def test_exponential_delay_timing(self):
         """Test exponential backoff delay timing (1s, 2s, 4s)."""
         mock_func = Mock(side_effect=[ValueError(), ValueError(), "success"])
+        mock_func.__name__ = "test_func"
         mock_func.__name__ = "test_func"
         
         with patch('time.sleep') as mock_sleep:
@@ -81,6 +84,7 @@ class TestExponentialBackoffRetry:
     def test_max_delay_cap(self):
         """Test delay is capped at max_delay."""
         mock_func = Mock(side_effect=[ValueError()] * 10)
+        mock_func.__name__ = "test_func"
         mock_func.__name__ = "test_func"
         
         with patch('time.sleep') as mock_sleep:
@@ -104,6 +108,7 @@ class TestExponentialBackoffRetry:
         # ValueError should be retried
         mock_func1 = Mock(side_effect=[ValueError(), "success"])
         mock_func1.__name__ = "test_func1"
+        mock_func1.__name__ = "test_func1"
         decorated1 = exponential_backoff_retry(exceptions=(ValueError,))(mock_func1)
         
         result1 = decorated1()
@@ -112,6 +117,7 @@ class TestExponentialBackoffRetry:
         
         # TypeError should not be retried (immediate failure)
         mock_func2 = Mock(side_effect=TypeError("Not retryable"))
+        mock_func2.__name__ = "test_func2"
         mock_func2.__name__ = "test_func2"
         decorated2 = exponential_backoff_retry(exceptions=(ValueError,))(mock_func2)
         
@@ -124,6 +130,7 @@ class TestExponentialBackoffRetry:
         """Test original exception is chained in MaxRetriesExceeded."""
         original_error = ValueError("Original error")
         mock_func = Mock(side_effect=original_error)
+        mock_func.__name__ = "test_func"
         mock_func.__name__ = "test_func"
         decorated = exponential_backoff_retry(max_retries=2, exceptions=(ValueError,))(mock_func)
         

@@ -84,7 +84,6 @@ class JSONFormatter:
             )
             
             # Create Bulletin
-            from datetime import timezone
             bulletin = Bulletin(
                 id=f"{region}-{date}-{period}",
                 region=RegionEnum(region),

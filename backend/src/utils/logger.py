@@ -8,7 +8,7 @@ structured logging suitable for monitoring and debugging.
 import logging
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict
 
 
@@ -26,7 +26,7 @@ class JSONFormatter(logging.Formatter):
             JSON string with log information
         """
         log_data: Dict[str, Any] = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "level": record.levelname,
             "logger": record.name,
             "message": record.getMessage(),

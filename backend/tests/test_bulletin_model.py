@@ -19,36 +19,40 @@ class TestBulletinModel:
     
     def test_bulletin_valid_creation(self):
         """Test creating a valid bulletin with all required fields."""
-        article = Article(
-            title="Test Article",
-            summary="This is a test summary with sufficient words here to meet the twenty-word minimum requirement for validation purposes in this test case.",
-            category=CategoryEnum.POLITICS,
-            source=Source(name="Test Source", url="https://example.com"),
-            citations=[Citation(title="Ref", url="https://example.com", publisher="Test")],
-            article_id="usa-2025-12-15-morning-001"
-        )
+        # Create 5 articles to meet minimum requirement
+        articles = []
+        for i in range(5):
+            articles.append(Article(
+                title=f"Test Article {i+1}",
+                summary="This is a test summary with sufficient words here to meet the twenty-word minimum requirement for validation purposes in this test case.",
+                category=CategoryEnum.POLITICS,
+                source=Source(name="Test Source", url="https://example.com"),
+                citations=[Citation(title="Ref", url="https://example.com", publisher="Test")],
+                article_id=f"usa-2025-12-15-morning-{i+1:03d}"
+            ))
         
         metadata = Metadata(
-            article_count=1,
-            categories_distribution={"politics": 1},
-            llm_usage=LLMUsage(prompt_tokens=100, completion_tokens=200, total_tokens=300)
+            article_count=5,
+            categories_distribution={"politics": 5},
+            llm_usage=LLMUsage(prompt_tokens=100, completion_tokens=200, total_tokens=300),
+            processing_time_seconds=0.5
         )
         
         bulletin = Bulletin(
             id="usa-2025-12-15-morning",
-            region=RegionEnum.usa,
+            region=RegionEnum.USA,
             date="2025-12-15",
-            period=PeriodEnum.morning,
-            generated_at=datetime.utcnow(),
+            period=PeriodEnum.MORNING,
+            generated_at=datetime.now(timezone.utc),
             version="1.0",
-            articles=[article],
+            articles=articles,
             metadata=metadata
         )
         
         assert bulletin.id == "usa-2025-12-15-morning"
         assert bulletin.region == RegionEnum.USA
         assert bulletin.period == PeriodEnum.MORNING
-        assert len(bulletin.articles) == 1
+        assert len(bulletin.articles) == 5
     
     def test_bulletin_id_format_validation(self):
         """Test bulletin ID must match region-date-period format."""
@@ -64,7 +68,8 @@ class TestBulletinModel:
         metadata = Metadata(
             article_count=1,
             categories_distribution={"politics": 1},
-            llm_usage=LLMUsage(prompt_tokens=100, completion_tokens=200, total_tokens=300)
+            llm_usage=LLMUsage(prompt_tokens=100, completion_tokens=200, total_tokens=300),
+            processing_time_seconds=0.0
         )
         
         with pytest.raises(ValidationError) as exc_info:
@@ -96,7 +101,8 @@ class TestBulletinModel:
                 metadata=Metadata(
                     article_count=0,
                     categories_distribution={},
-                    llm_usage=LLMUsage(prompt_tokens=0, completion_tokens=0, total_tokens=0)
+                    llm_usage=LLMUsage(prompt_tokens=0, completion_tokens=0, total_tokens=0),
+                processing_time_seconds=0.0
                 )
             )
     
@@ -114,7 +120,8 @@ class TestBulletinModel:
                 metadata=Metadata(
                     article_count=0,
                     categories_distribution={},
-                    llm_usage=LLMUsage(prompt_tokens=0, completion_tokens=0, total_tokens=0)
+                    llm_usage=LLMUsage(prompt_tokens=0, completion_tokens=0, total_tokens=0),
+                processing_time_seconds=0.0
                 )
             )
     
@@ -245,14 +252,17 @@ class TestBulletinModel:
     
     def test_bulletin_wrapper(self):
         """Test BulletinWrapper for JSON file structure."""
-        article = Article(
-            title="Test Article",
-            summary="This is a test summary with sufficient words here to meet the twenty-word minimum requirement for validation purposes in this test case.",
-            category=CategoryEnum.POLITICS,
-            source=Source(name="Test Source", url="https://example.com"),
-            citations=[Citation(title="Ref", url="https://example.com", publisher="Test")],
-            article_id="usa-2025-12-15-morning-001"
-        )
+        # Create 5 unique articles
+        articles = []
+        for i in range(5):
+            articles.append(Article(
+                title=f"Test Article {i+1}",
+                summary="This is a test summary with sufficient words here to meet the twenty-word minimum requirement for validation purposes in this test case.",
+                category=CategoryEnum.POLITICS,
+                source=Source(name="Test Source", url="https://example.com"),
+                citations=[Citation(title="Ref", url="https://example.com", publisher="Test")],
+                article_id=f"usa-2025-12-15-morning-{i+1:03d}"
+            ))
         
         bulletin = Bulletin(
             id="usa-2025-12-15-morning",
@@ -261,7 +271,7 @@ class TestBulletinModel:
             period=PeriodEnum.MORNING,
             generated_at=datetime.now(timezone.utc),
             version="1.0",
-            articles=[article] * 5,  # Repeat to meet 5 minimum
+            articles=articles,
             metadata=Metadata(
                 article_count=5,
                 categories_distribution={"politics": 5},

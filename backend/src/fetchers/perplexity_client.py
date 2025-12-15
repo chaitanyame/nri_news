@@ -6,7 +6,7 @@ to fetch and format news bulletins with citations and structured data.
 """
 
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 from openai import OpenAI, RateLimitError, APIError
 from ..utils.logger import logger
@@ -100,7 +100,7 @@ class PerplexityClient:
         
         # Default date to today
         if date is None:
-            date = datetime.utcnow().strftime("%Y-%m-%d")
+            date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         
         logger.info(
             "Fetching news from Perplexity API",
