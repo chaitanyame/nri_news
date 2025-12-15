@@ -272,6 +272,9 @@ class JSONFormatter:
             summary = article_data.get("summary", "").strip()
             category = article_data.get("category", "world").lower()
             
+            # Extract citations from article data if provided by LLM
+            article_citations = article_data.get("citations", [])
+            
             # Validate category
             try:
                 category_enum = CategoryEnum(category)
@@ -285,8 +288,11 @@ class JSONFormatter:
             # Create Source from article data or first citation
             source = self._create_source(article_data, citations_data, idx)
             
-            # Create Citations from API citations
-            citations = self._create_citations(citations_data, idx)
+            # Create Citations - prioritize citations from LLM response, fall back to API citations
+            citations = self._create_citations(
+                article_citations if article_citations else citations_data,
+                idx
+            )
             
             # Create Article
             article = Article(

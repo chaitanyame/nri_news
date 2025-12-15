@@ -247,7 +247,8 @@ Guidelines:
 - Only include stories with significant new developments (avoid rehashing old news)
 - If fewer than 10 stories are available, return what you find
 - Never fabricate information if sources are unavailable
-- Format response as JSON with an 'articles' array containing objects with 'title', 'summary', and 'category' fields"""
+- Include 1-3 source citations for each article with actual article titles and URLs from your search results
+- Format response as JSON with an 'articles' array containing objects with 'title', 'summary', 'category', and 'citations' fields"""
     
     def _get_default_user_prompt(self, region: str, period: str, date: str) -> str:
         """Get default user prompt for a region/period."""
@@ -272,6 +273,7 @@ For each story, provide:
 1. Title (max 12 words, factual and informative, NOT sensationalized)
 2. Summary (2-3 sentences, 40-60 words, covering who/what/when/where/why)
 3. Category (select ONE from: politics, economy, technology, business, sports, health, environment, science, world)
+4. Citations (1-3 sources with title, url, and publisher from your search results)
 
 Requirements:
 - Only include stories {time_window}
@@ -281,7 +283,21 @@ Requirements:
 - AVOID: Repeating stories from previous bulletin unless there are major new developments
 - Prefer articles from established, credible news outlets
 - Ensure summaries are self-contained (readable without clicking through)
+- Include actual source citations from your web search results for each article
 - If fewer than 10 stories meet criteria, return available stories only
 - Focus on important news delivery, not sensationalism
 
-Return response as JSON: {{"articles": [{{"title": "...", "summary": "...", "category": "..."}}]}}"""
+Return response as JSON:
+{{
+  "articles": [
+    {{
+      "title": "Article headline here",
+      "summary": "2-3 sentence summary covering the key details",
+      "category": "politics",
+      "citations": [
+        {{"title": "Source article title", "url": "https://source-url.com/article", "publisher": "Publisher Name"}},
+        {{"title": "Another source", "url": "https://another-source.com", "publisher": "Another Publisher"}}
+      ]
+    }}
+  ]
+}}"""
