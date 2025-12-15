@@ -57,16 +57,20 @@
             background-color: #f6f7f8;
             color: #0f172a;
         }
-        html:not(.dark) .bg-background-dark { background-color: #f6f7f8; }
+        html:not(.dark) .bg-background-dark { background-color: #ffffff !important; }
         html:not(.dark) .bg-card-dark { background-color: #ffffff; }
         html:not(.dark) .border-border-dark { border-color: #e2e8f0; }
-        html:not(.dark) .text-text-primary-dark { color: #0f172a; }
-        html:not(.dark) .text-text-secondary-dark { color: #64748b; }
+        html:not(.dark) .text-text-primary-dark { color: #0f172a !important; }
+        html:not(.dark) .text-text-secondary-dark { color: #64748b !important; }
         html:not(.dark) .ring-border-dark { --tw-ring-color: #e2e8f0; }
         html:not(.dark) .hover\:bg-slate-700:hover { background-color: #f1f5f9; }
         html:not(.dark) .hover\:bg-slate-800:hover { background-color: #f1f5f9; }
         html:not(.dark) .bg-slate-900\/50 { background-color: rgba(241, 245, 249, 0.5); }
         html:not(.dark) .bg-slate-700\/50 { background-color: rgba(241, 245, 249, 0.8); }
+        html:not(.dark) header { background-color: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid #e2e8f0; }
+        html:not(.dark) header .material-symbols-outlined { color: #0f172a; }
+        html:not(.dark) header input { background-color: #f6f7f8 !important; color: #0f172a !important; }
+        html:not(.dark) header input::placeholder { color: #64748b !important; }
         
         /* Skeleton animation */
         @keyframes shimmer {
