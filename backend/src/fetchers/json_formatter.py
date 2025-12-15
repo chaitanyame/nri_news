@@ -7,7 +7,7 @@ using Pydantic models for data integrity.
 
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 from pydantic import ValidationError
 from ..models.article import (
@@ -48,7 +48,7 @@ class JSONFormatter:
         """
         # Default date to today
         if date is None:
-            date = datetime.utcnow().strftime("%Y-%m-%d")
+            date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         
         logger.info(
             "Formatting API response to Bulletin",
@@ -84,12 +84,13 @@ class JSONFormatter:
             )
             
             # Create Bulletin
+            from datetime import timezone
             bulletin = Bulletin(
                 id=f"{region}-{date}-{period}",
                 region=RegionEnum(region),
                 date=date,
                 period=PeriodEnum(period),
-                generated_at=datetime.utcnow().replace(microsecond=0),
+                generated_at=datetime.now(timezone.utc).replace(microsecond=0),
                 version="1.0",
                 articles=articles,
                 metadata=metadata
@@ -250,7 +251,7 @@ class JSONFormatter:
                     f"Invalid category '{category}' for article {article_id}, defaulting to 'world'",
                     extra={"article_id": article_id, "invalid_category": category}
                 )
-                category_enum = CategoryEnum.world
+                category_enum = CategoryEnum.WORLD
             
             # Create Source from article data or first citation
             source = self._create_source(article_data, citations_data, idx)
