@@ -1,173 +1,215 @@
 {
   "bulletin": {
+    "id": "india-2025-12-15-morning",
     "region": "india",
-    "period": "morning",
     "date": "2025-12-15",
-    "generated_at": "2025-12-15T04:32:55.679909+00:00",
-    "article_count": 7,
+    "period": "morning",
+    "generated_at": "2025-12-15T05:15:20Z",
+    "version": "1.0",
     "articles": [
       {
-        "title": "Rupee Hits Record Low Against Dollar Amid Global Market Volatility",
-        "summary": "The Indian Rupee depreciated to 83.45 against the US Dollar, marking a new all-time low. RBI intervention in currency markets provided temporary support, but analysts predict continued pressure from widening trade deficits and strong dollar demand. Import-dependent sectors face increased cost pressures.",
-        "category": "ECONOMY",
+        "title": "CBI Busts Transnational Cyber-Fraud Network, 17 Charged",
+        "summary": "The Central Bureau of Investigation filed a chargesheet against 17 accused in a transnational cyber‑fraud network after overnight raids and forensic probes; the operation targeted call‑centre rings operating across multiple states and abroad, and seized devices and banking records to map proceeds of crime, sources said late last night in New Delhi.",
+        "category": "world",
         "source": {
-          "name": "The Economic Times",
-          "url": "https://economictimes.indiatimes.com/markets/forex/rupee-dollar-rate-december-2024",
-          "published_at": "2025-12-15T04:32:55.679918+00:00"
+          "name": "Unknown Source",
+          "url": "https://timesofindia.indiatimes.com/india/breaking-news-live-updates-15-december-2025/liveblog/125964562.cms"
         },
         "citations": [
           {
-            "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=56789",
-            "title": "RBI Market Intervention Statement",
-            "source": "Reserve Bank of India"
+            "title": "Reference",
+            "url": "https://timesofindia.indiatimes.com/india/breaking-news-live-updates-15-december-2025/liveblog/125964562.cms",
+            "publisher": "Unknown"
           },
           {
-            "url": "https://economictimes.indiatimes.com/news/economy/finance/rupee-analysis",
-            "title": "Rupee Depreciation: Expert Analysis",
-            "source": "Economic Times"
+            "title": "Reference",
+            "url": "https://www.hindustantimes.com/",
+            "publisher": "Unknown"
+          },
+          {
+            "title": "Reference",
+            "url": "https://www.ndtv.com/india",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-001"
       },
       {
-        "title": "Parliament Passes Landmark Digital Personal Data Protection Bill",
-        "summary": "The Lok Sabha approved the Digital Personal Data Protection Bill with strong cross-party support. The legislation establishes comprehensive data privacy frameworks, user consent requirements, and penalties for violations. Tech industry leaders welcomed the clarity while raising concerns about compliance timelines for existing platforms.",
-        "category": "POLITICS",
+        "title": "Delhi Records Severe Air Pollution; AQI Hits 461 Overnight",
+        "summary": "Delhi's air quality worsened overnight, with the Central Pollution Control Board reporting an AQI of 461 in parts of the city, classed as 'severe', disrupting flight operations and raising health advisories for vulnerable groups across the capital region, officials said in early‑morning updates.",
+        "category": "environment",
         "source": {
-          "name": "The Hindu",
-          "url": "https://www.thehindu.com/news/national/parliament-data-protection-bill-2024",
-          "published_at": "2025-12-15T04:32:55.679923+00:00"
+          "name": "Unknown Source",
+          "url": "https://www.hindustantimes.com/"
         },
         "citations": [
           {
-            "url": "https://sansad.in/ls/bills/bills-2024/digital-personal-data-protection-bill",
-            "title": "Bill Text and Amendments",
-            "source": "Lok Sabha"
+            "title": "Reference",
+            "url": "https://economictimes.com/news/new-updates/school-assembly-news-headlines-for-december-15-top-national-international-sports-and-business-update/articleshow/125963772.cms",
+            "publisher": "Unknown"
           },
           {
-            "url": "https://www.thehindu.com/opinion/editorial/digital-rights-data-protection/",
-            "title": "Editorial: Data Privacy Era Begins",
-            "source": "The Hindu"
+            "title": "Reference",
+            "url": "https://www.timesnownews.com/india/breaking-news-today-live-updates-india-international-world-latest-news-15-december-2025-liveblog-153293692",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-002"
       },
       {
-        "title": "ISRO Successfully Tests Reusable Launch Vehicle Technology",
-        "summary": "Indian Space Research Organisation (ISRO) completed a successful autonomous landing test of its Reusable Launch Vehicle (RLV) at the Aeronautical Test Range in Karnataka. The RLV-TD achieved precise runway landing after a high-altitude drop test. This milestone advances India's efforts to develop cost-effective space transportation systems.",
-        "category": "TECHNOLOGY",
+        "title": "Punjab Rural Polls See Low Turnout, Opposition Alleges Violence",
+        "summary": "Rural zila parishad and block samiti polling in Punjab concluded overnight with a reported turnout of about 48%, and opposition parties alleged instances of violence and intimidation at several booths, prompting calls for a probe and the filing of complaints with state election authorities, according to party statements and reporting late last night.",
+        "category": "politics",
         "source": {
-          "name": "India Today",
-          "url": "https://www.indiatoday.in/science/story/isro-reusable-launch-vehicle-test-2024",
-          "published_at": "2025-12-15T04:32:55.679927+00:00"
+          "name": "Unknown Source",
+          "url": "https://www.ndtv.com/india"
         },
         "citations": [
           {
-            "url": "https://www.isro.gov.in/RLV_Landing_Experiment.html",
-            "title": "ISRO RLV-TD Mission Update",
-            "source": "ISRO"
-          },
-          {
-            "url": "https://www.indiatoday.in/science/isro-reusable-rocket-technology",
-            "title": "India's Space Ambitions",
-            "source": "India Today"
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-003"
       },
       {
-        "title": "Monsoon Forecast: IMD Predicts Normal Rainfall for 2025 Season",
-        "summary": "The India Meteorological Department (IMD) released its preliminary monsoon forecast, predicting normal rainfall at 96-104% of the long-period average. Agricultural sectors welcomed the forecast, with expectations of strong Kharif crop production. However, IMD warned of potential regional variations and advised preparedness for localized extreme weather events.",
-        "category": "WEATHER",
+        "title": "Woman Stabbed To Death Inside Delhi Temple; One Arrested",
+        "summary": "Police in Delhi arrested one suspect after a 48‑year‑old woman was found stabbed inside a temple late last night; investigators say motive is under inquiry while forensic teams processed the scene and the accused was taken for questioning, officials told reporters in the early hours.",
+        "category": "world",
         "source": {
-          "name": "NDTV",
-          "url": "https://www.ndtv.com/india-news/imd-monsoon-forecast-2025",
-          "published_at": "2025-12-15T04:32:55.679931+00:00"
+          "name": "Unknown Source",
+          "url": "https://economictimes.com/news/new-updates/school-assembly-news-headlines-for-december-15-top-national-international-sports-and-business-update/articleshow/125963772.cms"
         },
         "citations": [
           {
-            "url": "https://mausam.imd.gov.in/imd_latest/monsoon_forecast_2025.pdf",
-            "title": "IMD Monsoon Forecast 2025",
-            "source": "India Meteorological Department"
-          },
-          {
-            "url": "https://www.ndtv.com/india-news/agriculture-monsoon-impact-analysis",
-            "title": "Monsoon Impact on Agriculture",
-            "source": "NDTV"
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-004"
       },
       {
-        "title": "India Defeats Australia by 6 Wickets in Third Test at MCG",
-        "summary": "Team India secured a commanding victory in the Boxing Day Test at the Melbourne Cricket Ground, taking a 2-1 lead in the five-match series. Virat Kohli's century (112 off 186 balls) anchored the chase of 287 runs. The win keeps India's hopes alive for retaining the Border-Gavaskar Trophy on Australian soil.",
-        "category": "SPORTS",
+        "title": "NIA To File Chargesheet Today In Jammu Explosion Case",
+        "summary": "The National Investigation Agency prepared to file a chargesheet today in connection with a recent explosion in Jammu after concluding overnight evidence consolidation and witness statements; the move follows searches and seizure operations across multiple locations tied to the probe, officials stated.",
+        "category": "world",
         "source": {
-          "name": "Cricbuzz",
-          "url": "https://www.cricbuzz.com/cricket-match/live-scores/aus-vs-ind-3rd-test-2024",
-          "published_at": "2025-12-15T04:32:55.679935+00:00"
+          "name": "Unknown Source",
+          "url": "https://www.timesnownews.com/india/breaking-news-today-live-updates-india-international-world-latest-news-15-december-2025-liveblog-153293692"
         },
         "citations": [
           {
-            "url": "https://www.bcci.tv/matches/ind-vs-aus-3rd-test",
-            "title": "Match Highlights and Scoreboard",
-            "source": "BCCI"
-          },
-          {
-            "url": "https://www.cricbuzz.com/cricket-series/ind-in-aus-test-series-2024",
-            "title": "India Tour of Australia 2024",
-            "source": "Cricbuzz"
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-005"
       },
       {
-        "title": "New TB Vaccine Shows 80% Efficacy in Phase 3 Trials",
-        "summary": "Indian Council of Medical Research (ICMR) announced breakthrough results from Phase 3 trials of a novel tuberculosis vaccine. The vaccine demonstrated 80% efficacy in preventing active TB disease among high-risk populations. India accounts for 27% of global TB burden, making this development particularly significant for public health goals.",
-        "category": "HEALTH",
+        "title": "One Killed, Two Injured In Jalandhar Scrap‑shop Blast",
+        "summary": "A blast at a scrap shop in Jalandhar late last night killed one person and injured two others; local police said emergency services responded overnight, the deceased has been identified, and an investigation into the cause of the explosion is under way.",
+        "category": "world",
         "source": {
-          "name": "Times of India",
-          "url": "https://timesofindia.indiatimes.com/india/tb-vaccine-trial-results-2024",
-          "published_at": "2025-12-15T04:32:55.679939+00:00"
+          "name": "Unknown Source",
+          "url": "https://example.com/"
         },
         "citations": [
           {
-            "url": "https://main.icmr.nic.in/content/tb-vaccine-phase-3-results",
-            "title": "ICMR TB Vaccine Trial Results",
-            "source": "ICMR"
-          },
-          {
-            "url": "https://timesofindia.indiatimes.com/life-style/health-fitness/tb-vaccine-breakthrough/",
-            "title": "TB Vaccine: What It Means for India",
-            "source": "Times of India"
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-006"
       },
       {
-        "title": "Reliance Jio Launches 5G-Enabled Smart City Project in Pune",
-        "summary": "Reliance Jio partnered with Pune Municipal Corporation to deploy a comprehensive smart city infrastructure powered by 5G networks. The project includes IoT-enabled traffic management, environmental sensors, and public Wi-Fi zones covering 250 square kilometers. The initiative aims to improve urban governance and citizen services through real-time data analytics.",
-        "category": "BUSINESS",
+        "title": "Maharashtra Announces Mumbai–Hyderabad Expressway, Metro Expansion",
+        "summary": "In a late‑night address during the winter session, Maharashtra's deputy chief minister announced plans for a Mumbai–Hyderabad expressway, expansion of Mumbai metro lines and proposed power tariff reductions aimed at accelerating connectivity and easing urban energy costs across the state.",
+        "category": "politics",
         "source": {
-          "name": "Business Standard",
-          "url": "https://www.business-standard.com/india-news/reliance-jio-pune-smart-city-5g",
-          "published_at": "2025-12-15T04:32:55.679942+00:00"
+          "name": "Unknown Source",
+          "url": "https://example.com/"
         },
         "citations": [
           {
-            "url": "https://www.jio.com/en-in/business/smart-cities/pune-project",
-            "title": "Jio Smart City Pune Launch",
-            "source": "Reliance Jio"
-          },
-          {
-            "url": "https://www.business-standard.com/technology/tech-news/5g-smart-cities-india",
-            "title": "India's Smart City Revolution",
-            "source": "Business Standard"
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
           }
-        ]
+        ],
+        "article_id": "india-2025-12-15-morning-007"
+      },
+      {
+        "title": "CAG Issues Report Citing Fiscal Indiscipline, Last‑Minute Spending",
+        "summary": "The Comptroller and Auditor General released a report overnight criticizing a state government's fiscal indiscipline, highlighting underspending on revenue lines, low capital expenditure execution, and increased last‑minute expenses that raise accountability questions ahead of budget planning, the CAG document showed.",
+        "category": "economy",
+        "source": {
+          "name": "Unknown Source",
+          "url": "https://example.com/"
+        },
+        "citations": [
+          {
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
+          }
+        ],
+        "article_id": "india-2025-12-15-morning-008"
+      },
+      {
+        "title": "Gurugram Police Recruit 450 Residents As 'Cyber Marshals'",
+        "summary": "Gurugram police launched a community cyber‑safety initiative late last night, onboarding 450 resident volunteers as 'Cyber Marshals' to disseminate fraud alerts and digital safety tips in housing societies as part of a broader effort to curb online scams.",
+        "category": "technology",
+        "source": {
+          "name": "Unknown Source",
+          "url": "https://example.com/"
+        },
+        "citations": [
+          {
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
+          }
+        ],
+        "article_id": "india-2025-12-15-morning-009"
+      },
+      {
+        "title": "Karnataka Prisons Chief Seizes 13 Phones, Drugs In Overnight Crackdown",
+        "summary": "Karnataka's new prisons director ordered a statewide overnight crackdown that led to the seizure of 13 mobile phones and contraband packets inside multiple detention centres; authorities said the action was part of immediate reform measures after his appointment.",
+        "category": "world",
+        "source": {
+          "name": "Unknown Source",
+          "url": "https://example.com/"
+        },
+        "citations": [
+          {
+            "title": "Original Source",
+            "url": "https://example.com/",
+            "publisher": "Unknown"
+          }
+        ],
+        "article_id": "india-2025-12-15-morning-010"
       }
     ],
     "metadata": {
-      "api_version": "1.0",
-      "prompt_tokens": 800,
-      "completion_tokens": 1100,
-      "total_tokens": 1900,
-      "model": "sonar",
-      "temperature": 0.3
+      "article_count": 10,
+      "categories_distribution": {
+        "world": 5,
+        "environment": 1,
+        "politics": 2,
+        "economy": 1,
+        "technology": 1
+      },
+      "llm_model": "sonar",
+      "llm_usage": {
+        "prompt_tokens": 569,
+        "completion_tokens": 926,
+        "total_tokens": 1495
+      },
+      "processing_time_seconds": 0.0,
+      "workflow_run_id": "20221300247"
     }
   }
 }
